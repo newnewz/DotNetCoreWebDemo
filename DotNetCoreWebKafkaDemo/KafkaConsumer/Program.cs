@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KafkaConsumer.Consumers;
+using System;
 
 namespace KafkaConsumer
 {
@@ -6,7 +7,8 @@ namespace KafkaConsumer
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var testTopicConsumer = new KafkaTopicConsumer("test");
+            testTopicConsumer.Listen(Console.WriteLine);
         }
     }
 }
