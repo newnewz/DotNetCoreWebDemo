@@ -26,10 +26,10 @@ namespace KafkaConsumer.Consumers
             config.Add("enable.auto.commit", "false");
 
 
-            using (var consumer = new Consumer<string, string>(config, new StringDeserializer(Encoding.UTF8), new StringDeserializer(Encoding.UTF8)))
+            using (var consumer = new Consumer<Null, string>(config, null, new StringDeserializer(Encoding.UTF8)))
             {
                 consumer.Subscribe(_topicName);
-                consumer.OnMessage += (key, msg) =>
+                consumer.OnMessage += (_, msg) =>
                 {
                     message(msg.Value);
                 };
