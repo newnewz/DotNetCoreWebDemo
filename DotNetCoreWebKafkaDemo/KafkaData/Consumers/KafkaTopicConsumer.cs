@@ -2,12 +2,12 @@
 
 using Confluent.Kafka;
 using Confluent.Kafka.Serialization;
-using KafkaConsumer.Interfaces;
+using KafkaData.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace KafkaConsumer.Consumers
+namespace KafkaData.Consumers
 {
     public class KafkaTopicConsumer : ITopicConsumer
     {
@@ -26,10 +26,10 @@ namespace KafkaConsumer.Consumers
             config.Add("enable.auto.commit", "false");
 
 
-            using (var consumer = new Consumer<Null, string>(config, null, new StringDeserializer(Encoding.UTF8)))
+            using (var consumer = new Consumer<string, string>(config, new StringDeserializer(Encoding.UTF8), new StringDeserializer(Encoding.UTF8)))
             {
                 consumer.Subscribe(_topicName);
-                consumer.OnMessage += (_, msg) =>
+                consumer.OnMessage += (key, msg) =>
                 {
                     message(msg.Value);
                 };

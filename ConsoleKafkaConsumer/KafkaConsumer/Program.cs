@@ -1,4 +1,4 @@
-﻿using KafkaConsumer.Consumers;
+﻿using KafkaData.Consumers;
 using System;
 
 namespace KafkaConsumer

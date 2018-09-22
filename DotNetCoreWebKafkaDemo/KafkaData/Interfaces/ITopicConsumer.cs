@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace KafkaConsumer.Interfaces
+namespace KafkaData.Interfaces
 {
     interface ITopicConsumer
     {
