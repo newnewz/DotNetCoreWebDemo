@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "KafkaConsumer": {
+      "commandName": "Project"
+    }
+  }
+}
