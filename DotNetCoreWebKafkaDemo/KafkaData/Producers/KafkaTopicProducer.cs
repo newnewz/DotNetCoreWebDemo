@@ -23,7 +23,7 @@ namespace KafkaData.Producers
             using (var producer = new Producer<string, string>(config, new StringSerializer(Encoding.UTF8), new StringSerializer(Encoding.UTF8)))
             {
                 producer.ProduceAsync(_topicName, null, message).GetAwaiter().GetResult();
-                producer.Flush(1000);
+                producer.Flush(100);
             }
 
         }
