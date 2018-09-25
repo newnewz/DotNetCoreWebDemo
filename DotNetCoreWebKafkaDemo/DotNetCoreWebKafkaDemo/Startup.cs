@@ -26,21 +26,13 @@ namespace DotNetCoreWebKafkaDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-
-            var builder = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.json");
-            var config = builder.Build();
-
-            //services.AddTransient
-
-            services.AddCors(options =>
+            services.Configure<CookiePolicyOptions>(options =>
             {
-                options.AddPolicy("CorsPolicy", b =>
-                {
-
-                    b.AllowAnyMethod();
-                });
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = Microsoft.AspNetCore.Http.SameSiteMode.None;
             });
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSignalR();
         }
@@ -54,23 +46,19 @@ namespace DotNetCoreWebKafkaDemo
             }
             else
             {
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
 
-            app.UseCors("CorsPolicy");
-
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
             app.UseSignalR(routes =>
             {
-                routes.MapHub<KafkaHub>("testHub");
+                routes.MapHub<KafkaHub>("/kafkaHub");
             });
 
-            app.UseDefaultFiles();
-            app.UseStaticFiles();
-
-            app.ApplicationServices.GetService<KafkaMessageRelay>();
-
-            //app.UseHttpsRedirection();
-            //app.UseMvc();
+            app.UseMvc();
         }
     }
 }

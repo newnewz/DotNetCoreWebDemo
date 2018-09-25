@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebKafkaDemo", "DotNetCoreWebKafkaDemo\DotNetCoreWebKafkaDemo.csproj", "{00DD8FA9-24EF-4CB2-83ED-1F4DECC02F6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaData", "KafkaData\KafkaData.csproj", "{734552F3-97FE-4D7D-90A7-95BCB5E3BDD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaData", "KafkaData\KafkaData.csproj", "{734552F3-97FE-4D7D-90A7-95BCB5E3BDD0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
