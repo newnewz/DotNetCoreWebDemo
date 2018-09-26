@@ -39,8 +39,6 @@ namespace KafkaData.Consumers
                     consumer.Poll(1000);
                 }
             }
-
-            
         }
     }
 }

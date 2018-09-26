@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KafkaData.Interfaces
 {
-    interface ITopicConsumer
+    public interface ITopicConsumer
     {
         void Listen(Action<string> message);
     }

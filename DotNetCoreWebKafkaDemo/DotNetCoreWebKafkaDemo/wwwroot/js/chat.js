@@ -11,6 +11,8 @@ connection.on("ReceiveMessage", function (user, message) {
 });
 
 connection.start().catch(function (err) {
+    var li = document.createElement("li");
+    li.textContent = "called at connection.start()";
     return console.error(err.toString());
 });
 
