@@ -7,5 +7,7 @@ namespace KafkaData.Interfaces
     public interface ITopicConsumer
     {
         void Listen(Action<string> message);
+
+        string GetMessage();
     }
 }

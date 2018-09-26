@@ -12,4 +12,8 @@
     <PackageReference Include="React.AspNet" Version="3.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\KafkaData\KafkaData.csproj" />
+  </ItemGroup>
+
 </Project>
