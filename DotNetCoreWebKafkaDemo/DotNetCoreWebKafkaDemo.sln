@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebKafkaDemo", "D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KafkaData", "KafkaData\KafkaData.csproj", "{734552F3-97FE-4D7D-90A7-95BCB5E3BDD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreWebKafkaDemoReact", "DotNetCoreWebKafkaDemoReact\DotNetCoreWebKafkaDemoReact.csproj", "{F934A6C6-E7E4-44AD-A150-AEC17499AE96}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DotNetCoreWebKafkaDemoReact", "DotNetCoreWebKafkaDemoReact\DotNetCoreWebKafkaDemoReact.csproj", "{F934A6C6-E7E4-44AD-A150-AEC17499AE96}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

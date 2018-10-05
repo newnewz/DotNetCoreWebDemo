@@ -32,6 +32,7 @@ namespace KafkaData.Consumers
                 consumer.OnMessage += (key, msg) =>
                 {
                     message(msg.Value);
+                    consumer.CommitAsync();
                 };
 
                 while (true)

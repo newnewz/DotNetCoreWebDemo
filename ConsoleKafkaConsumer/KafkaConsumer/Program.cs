@@ -14,7 +14,8 @@ namespace KafkaConsumer
         {
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
-            var testTopicConsumer = new KafkaTopicConsumer("test");
+            Console.WriteLine($"Listening on topic : {args[1]}");
+            var testTopicConsumer = new KafkaTopicConsumer(args[1]);
             testTopicConsumer.Listen(PostToApi);
         }
 
