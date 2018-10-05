@@ -1,6 +1,7 @@
 ﻿using KafkaData.Consumers;
 using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 
@@ -15,16 +16,20 @@ namespace KafkaConsumer
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
             Console.WriteLine($"Listening on topic : {args[1]}");
+            ServicePointManager.ServerCertificateValidationCallback +=
+                (sender, cert, chain, sslPolicyErrors) => true;
             var testTopicConsumer = new KafkaTopicConsumer(args[1]);
             testTopicConsumer.Listen(PostToApi);
         }
 
-        static void PostToApi(string message)
+        static async void PostToApi(string message)
         {
 
             Console.WriteLine(message);
-            var response = client.PostAsync("https://localhost:5001/comments/newMessage", new StringContent("\"" +message + "\"", Encoding.UTF8, "application/json"));
             
+            var response = await client.PostAsync("http://localhost:28123/comments/newMessage", new StringContent("\"" +message + "\"", Encoding.UTF8, "application/json"));
+
+            Console.WriteLine(await response.Content.ReadAsStringAsync());
         }
     }
 }

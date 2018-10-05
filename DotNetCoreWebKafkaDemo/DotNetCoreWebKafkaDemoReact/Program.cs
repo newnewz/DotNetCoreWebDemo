@@ -19,6 +19,10 @@ namespace DotNetCoreWebKafkaDemoReact
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                //.UseConfiguration(config)
+                .UseUrls("https://*:28349", "http://localhost:28123")
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>();
     }
 }
