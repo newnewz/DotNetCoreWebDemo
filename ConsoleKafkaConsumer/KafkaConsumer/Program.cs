@@ -16,8 +16,6 @@ namespace KafkaConsumer
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.OSDescription);
             Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
             Console.WriteLine($"Listening on topic : {args[1]}");
-            ServicePointManager.ServerCertificateValidationCallback +=
-                (sender, cert, chain, sslPolicyErrors) => true;
             var testTopicConsumer = new KafkaTopicConsumer(args[1]);
             testTopicConsumer.Listen(PostToApi);
         }
